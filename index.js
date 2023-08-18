@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs/promises');
 
 let quests = [
     {
@@ -26,6 +27,17 @@ let quests = [
 inquirer.prompt(quests).then((answers) => {
     console.log('answers = "' + answers + '"');
     console.log('answers json = "' + JSON.stringify(answers) + '"');
+    return answers;
+}).then((answers) => {
+    console.log('answers json after then = "' + JSON.stringify(answers) + '"');
+    // TODO - normalize answers
+    let outFileName = './logo.svg';
+    let nonsenseContent = 'line 1';  // TODO
+    nonsenseContent += '\nline 2';
+    return fs.writeFile(outFileName,nonsenseContent);
+}).then((writePromise) => {
+    console.log('prompt kept');
+    console.log('presumably logo.svg written');
 }).catch((error) => {
     if (error) {
         console.log('error caught = "' + error + '"');
