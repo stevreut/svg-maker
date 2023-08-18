@@ -4,11 +4,10 @@
   <rect x="79" y="341" width="843" height="321" fill="#000000" />
   <rect x="341" y="79" width="321" height="843" fill="#000000" />
   <rect x="182" y="182" width="639" height="639" fill="#000000" />
-  <circle cx="500" cy="500" r="159" fill="#ff0000" />
-  <text x="500" y="520" font-size="75" text-anchor="middle" fill="#000000">Chakana</text>
   <rect x="79" y="341" width="843" height="1" fill="#402020" />
   <rect x="79" y="661" width="843" height="1" fill="#402020" />
   <rect x="341" y="79" width="1" height="843" fill="#402020" />
   <rect x="661" y="79" width="1" height="843" fill="#402020" />
-
+  <circle cx="500" cy="500" r="159" fill="#ff0000" />
+  <text x="500" y="520" font-size="75" text-anchor="middle" fill="#000000">Chakana</text>
 </svg>
