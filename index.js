@@ -3,18 +3,29 @@ const inquirer = require('inquirer');
 let quests = [
     {
         type: 'input',
-        name: 'topping',
-        message: 'What topping would you like?'
+        name: 'inits',
+        message: 'What are your initials? (no more than 3)?'
+    },
+    {
+        type: 'input',
+        name: 'textColor',
+        message: 'What should be the color of the initials? (can be color name or color hex code)'
     },
     {   type: 'list',
-        name: 'size',
-        choices: ['small','medium','large']
+        name: 'shape',
+        choices: ['circle','square','triangle'],
+        message: 'Choose a shape for the background'
+    },
+    {
+        type: 'input',
+        name: 'shapeColor',
+        message: 'Color of background shape (can be color name or color hex code)'
     }
 ];
 
 inquirer.prompt(quests).then((answers) => {
     console.log('answers = "' + answers + '"');
-    console.log('ansers json = "' + JSON.stringify(answers) + '"');
+    console.log('answers json = "' + JSON.stringify(answers) + '"');
 }).catch((error) => {
     if (error) {
         console.log('error caught = "' + error + '"');
