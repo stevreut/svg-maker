@@ -1,0 +1,16 @@
+<svg version="1.1" width="250" height="200" xmlns="http://www.w3.org/2000/svg">
+
+  <circle cx="150" cy="100" r="80" fill="#008000" />
+  <circle cx="140" cy="100" r="80" fill="#007820" />
+  <circle cx="130" cy="100" r="80" fill="#007040" />
+  <circle cx="120" cy="100" r="80" fill="#006860" />
+  <circle cx="130" cy="100" r="80" fill="#006080" />
+  <circle cx="120" cy="100" r="80" fill="#0058A0" />
+  <circle cx="110" cy="100" r="80" fill="#0050C0" />
+  <circle cx="100" cy="100" r="80" fill="#0048E0" />
+  <circle cx="90" cy="100" r="80" fill="#0040FF" />
+
+  <text x="123" y="120" font-size="60" text-anchor="middle" fill="#202080">Circles</text>
+
+
+</svg>
