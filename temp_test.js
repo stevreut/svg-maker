@@ -2,6 +2,7 @@ const Circle = require('./lib/circle.js');
 const Triangle = require('./lib/triangle.js');
 const Square = require('./lib/square.js');
 const Text = require('./lib/text.js');
+const SVG = require('./lib/svg.js');
 
 let circle = new Circle("95.5","16.2","red","5.0");
 let rndr = circle.render();
@@ -18,3 +19,7 @@ console.log('tri rendered = ' + rndr);
 let txt = new Text("40",35,"cyan","Hello");
 rndr = txt.render();
 console.log('txt = ' + rndr);
+
+let svg = new SVG('SAR','red','circle','blue');
+rndr = svg.render();
+console.log('test svg = ' + rndr);
