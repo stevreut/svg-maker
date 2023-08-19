@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs/promises');
+const SVG = require('./lib/svg.js');
 
 let quests = [
     {
@@ -34,7 +35,10 @@ inquirer.prompt(quests).then((answers) => {
     let outFileName = './logo.svg';
     let nonsenseContent = 'line 1';  // TODO
     nonsenseContent += '\nline 2';
-    return fs.writeFile(outFileName,nonsenseContent);
+    let svg = new SVG(answers.inits,answers.textColor,answers.shape,answers.shapeColor);
+    let svgStr = svg.render();
+    console.log('svg rendered = "' + svgStr + '"');
+    return fs.writeFile(outFileName,svgStr);
 }).then((writePromise) => {
     console.log('prompt kept');
     console.log('presumably logo.svg written');
