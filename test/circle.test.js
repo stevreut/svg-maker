@@ -26,7 +26,7 @@ describe('circle tests', () => {
                 expect(circle.render()).toBe('<circle cx="61" cy="45" r="31" fill="#808080" />');
             });
         });
-        describe('circle initial tests', () => {
+        describe('circle color tests', () => {
             it('Circle hex colors with neither 3 or 6 digits should be replaced with "black" (2 digit case)', () => {
                 const circle = new Circle(60, 50, '#ab', 30);
                 expect(circle.render()).toBe('<circle cx="60" cy="50" r="30" fill="black" />');
@@ -35,9 +35,14 @@ describe('circle tests', () => {
                 const circle = new Circle(60, 50, '#ab78', 30);
                 expect(circle.render()).toBe('<circle cx="60" cy="50" r="30" fill="black" />');
             });
-        });
-        describe('circle color tests', () => {
-            
+            it('Circle hex colors with invalid hex characters should be replaced with "black"', () => {
+                const circle = new Circle(60, 50, '#ab789z', 30);
+                expect(circle.render()).toBe('<circle cx="60" cy="50" r="30" fill="black" />');
+            });
+            it('Circle hex colors with valid hex characters should be rendered with specified color', () => {
+                const circle = new Circle(60, 50, '#ab789f', 30);
+                expect(circle.render()).toBe('<circle cx="60" cy="50" r="30" fill="#ab789f" />');
+            });
         });
     });    
 });
