@@ -16,7 +16,7 @@ let quests = [
     },
     {   type: 'list',
         name: 'shape',
-        choices: ['circle','square','triangle'],
+        choices: ['circle','square','triangle','nautilus'],
         message: 'Choose a shape for the background'
     },
     {
