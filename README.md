@@ -2,4 +2,4 @@
 
 ## Description
 
-A NodeJS application for creating SVG image files based on user input.
+A NodeJS application for creating SVG image files based on user input.node
