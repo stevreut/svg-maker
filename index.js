@@ -34,14 +34,6 @@ inquirer.prompt(quests).then((answers) => {
 }).then((answers) => {
     console.log('answers json after then = "' + JSON.stringify(answers) + '"');
     let { inits, textColor, shape, shapeColor } = answers;
-    inits = inits.trim().toUpperCase();
-    if (inits.length === 0) {
-        console.log('\n\nNo initials entered, defaulting to XYZ\n');
-        inits = 'XYZ';
-    } else if (inits.length > 3) {
-        console.log('\n\nToo many initials entered, will be truncated\n');
-        inits = inits.substring(0,3);
-    }
     let svg = new SVG(inits,textColor,shape,shapeColor);
     let svgStr = svg.render();
     console.log('svg rendered = "' + svgStr + '"');
