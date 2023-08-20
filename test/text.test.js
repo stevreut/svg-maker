@@ -44,5 +44,23 @@ describe('text tests', () => {
                 expect(text.render()).toBe('<text x="60" y="60" font-size="24" text-anchor="middle" fill="#ab789f">JKL</text>');
             });
         });
+        describe('text content tests', () => {
+            it('Text null content should be replaced with "XYZ"', () => {
+                const text = new Text(60, 50, '#ab789f', null);
+                expect(text.render()).toBe('<text x="60" y="60" font-size="24" text-anchor="middle" fill="#ab789f">XYZ</text>');
+            });
+            it('Text content should be trimmed of spaces', () => {
+                const text = new Text(60, 50, '#ab789f', '  SAM   ');
+                expect(text.render()).toBe('<text x="60" y="60" font-size="24" text-anchor="middle" fill="#ab789f">SAM</text>');
+            });
+            it('Text content should be converted to upper case', () => {
+                const text = new Text(60, 50, '#ab789f', 'Pqr');
+                expect(text.render()).toBe('<text x="60" y="60" font-size="24" text-anchor="middle" fill="#ab789f">PQR</text>');
+            });
+            it('Text content should be truncated if it exceeds 3 characters after trimming', () => {
+                const text = new Text(60, 50, '#ab789f', '  Pqrxjf');
+                expect(text.render()).toBe('<text x="60" y="60" font-size="24" text-anchor="middle" fill="#ab789f">PQR</text>');
+            });
+        });
     });    
 });
