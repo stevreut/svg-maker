@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs/promises');
 const SVG = require('./lib/svg.js');
 
+// Question array passed to inquirer.prompt
 let quests = [
     {
         type: 'input',
@@ -28,17 +29,20 @@ let quests = [
 let outFileName = 'logo.svg';
 
 inquirer.prompt(quests).then((answers) => {
-    console.log('answers = "' + answers + '"');
-    console.log('answers json = "' + JSON.stringify(answers) + '"');
+    // Inquirer prompts the user (via run-line dialog) for answers to each
+    // of four questions enumerated in array quests[] and returns all the
+    // answers thereto in a single 'answers' object.
     return answers;
 }).then((answers) => {
-    console.log('answers json after then = "' + JSON.stringify(answers) + '"');
+    // Destructure the resulting answers
     let { inits, textColor, shape, shapeColor } = answers;
+    // Use the resulting values to render an SVG STRING (not file)
     let svg = new SVG(inits,textColor,shape,shapeColor);
     let svgStr = svg.render();
-    console.log('svg rendered = "' + svgStr + '"');
+    // Write the resulting SVG string to file outFileName.
     return fs.writeFile(outFileName,svgStr);
 }).then((writePromise) => {
+    // If write was successful then confirm to the console.
     console.log('\n\n   Generated ' + outFileName + '\n\n');
 }).catch((error) => {
     if (error) {
