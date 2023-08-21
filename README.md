@@ -16,7 +16,7 @@ from run-line dialog with the application user.
         - *Square*
         - *Text*
         - *Triangle*
-        
+
         Each of these child classes produces an SVG sub-element (as a string) that represents a *centered* rendering of the shape in question and having the specified color.
     - use of an HtmlColorValidator class which is used to determined with a given string value is a valid name for an HTML color, such names being either one of the color names from the CSS standard or a color hex code.
     - use of the *inquirer* package for purposes of prompting the user for input.
@@ -74,7 +74,7 @@ Special thanks to the teaching staff of the University of Pennsylvania Full Stac
 
 ## Testing
 
-TODO 
+Substantial testing has been scripted and executed via *Jest* and the scripts for those tests are included in the `test/` directory of this repository.  Execution of these same tests is also demonstrated in the above-mentioned [demonstration video](https://www.youtube.com/watch?v=gXn4hYd98ZE).
 
 ## License
 
