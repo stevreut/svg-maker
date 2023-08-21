@@ -6,12 +6,26 @@ A NodeJS application which creates a simple SVG graphic file based on input
 from run-line dialog with the application user.
 
 - Key features of the application are:
-    ***TODO - must complete this!!***
+    - use of a *Shape* superclass representing objects with a 
+    defined center point and color, and that have a render() method that returns an SVG element (string) representing that shape.  *Shape* is an **abstract** class and, thus, has no implementation for the render() method, only a no-op
+    render() method which is expected to be overridden by any
+    subclasses of *Shape*.
+    - use of several specific *Shape* subclasses:
+        - *Circle*
+        - *Nautilus*
+        - *Square*
+        - *Text*
+        - *Triangle*
+        
+        Each of these child classes produces an SVG sub-element (as a string) that represents a *centered* rendering of the shape in question and having the specified color.
+    - use of an HtmlColorValidator class which is used to determined with a given string value is a valid name for an HTML color, such names being either one of the color names from the CSS standard or a color hex code.
+    - use of the *inquirer* package for purposes of prompting the user for input.
 
 ## Table of Contents
 
 - [Usage](#usage)
 - [Credits](#credits)
+- [Testing](#testing)
 - [License](#license)
 
 ## Installation
@@ -40,6 +54,12 @@ from run-line dialog with the application user.
         - Note that a selection is made using the up-arrow or down-arrow keys and [enter]
     - *"Color of background shape (can be color name or color hex code)"*
 4. Once all four questions have been answered, a file `logo.svg` will be produced in the same directory in which the application was run.  (Note that any pre-existing `logo.svg` file in the same directory will be overwritten.)
+5. Note that no response from the user will be rejected *per se*; however responses which are not acceptable are overridden - specifically:
+    - If no initials are entered then "XYZ" is used instead.
+    - If too many initials are entered then only the first three are used.
+    - If an invalid color name or hex code is entered then the color black is used instead.
+
+**Note** that a demonstration video can be found on *YouTube* by [following this link](https://www.youtube.com/watch?v=gXn4hYd98ZE).
 
 ## Credits
 
@@ -47,8 +67,14 @@ Special thanks to the teaching staff of the University of Pennsylvania Full Stac
 
 
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
+- [NodeJS Documentation](https://nodejs.dev/en/api/v20/documentation/)
+- [MDN guide to SVG files](https://developer.mozilla.org/en-US/docs/Web/SVG)
+- [WC3 - CSS Color Module Level 4 - Named Colors](https://www.w3.org/TR/css-color-4/#typedef-named-color)
+- [function colourNameToHex](https://stackoverflow.com/questions/1573053/javascript-function-to-convert-color-names-to-hex-codes#1573141) by [Stackoverflow user *Greg*](https://stackoverflow.com/users/24181/greg)
 
-TODO - credit for (1) list of colors, (2) conversion-to-hex routine
+## Testing
+
+TODO 
 
 ## License
 
